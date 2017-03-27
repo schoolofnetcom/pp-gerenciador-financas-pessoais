@@ -1,0 +1,20 @@
+{
+    "name": "luiz/son-financas",
+    "authors": [
+        {
+            "name": "Luiz",
+            "email": "argentinaluiz@gmail.com"
+        }
+    ],
+    "require": {
+        "robmorgan/phinx": "0.7.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "SONFin\\": "src/"
+        }
+    },
+    "require-dev": {
+        "fzaninotto/faker": "1.6.0"
+    }
+}
