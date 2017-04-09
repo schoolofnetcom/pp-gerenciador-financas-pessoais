@@ -1,0 +1,46 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        Ver categoria de custo
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <a href="{{ route('category-costs.edit',{'id': category.id}) }}"
+                               class="btn btn-primary">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                            </a>
+                            <a href="{{ route('category-costs.delete',{'id': category.id}) }}"
+                               class="btn btn-danger">
+                                <span class="glyphicon glyphicon-remove"></span>
+                            </a>
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table class="table table-bordered">
+                                <tbody>
+                                <tr>
+                                    <th scope="row">#</th>
+                                    <td>{{ category.id }}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Nome</th>
+                                    <td>{{ category.name }}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
