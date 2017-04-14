@@ -1,0 +1,59 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        Gráfico de gastos
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <form class="form-inline text-center" method="get" action="{{ route('charts.list') }}">
+                        <div class="form-group">
+                            <label class="control-label">Início</label>
+                            <input class="form-control" type="text" placeholder="DD/MM/YYY"
+                                   name="date_start" value="{{ 'now'|date_modify('-1 month')|date('d/m/Y') }}">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Fim</label>
+                            <input class="form-control" type="text" placeholder="DD/MM/YYY"
+                                   name="date_end" value="{{ 'now'|date('d/m/Y') }}">
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                    </form>
+                    <div id="chart-div"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {packages: ['corechart']})
+        //Google Visualization API
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Categoria');
+            data.addColumn('number', 'Valor Gasto');
+            data.addRows([
+                {% for category in categories %}
+                ['{{ category.name }}',{{ category.value|number_format(2,'.','') }}],
+                {% endfor %}
+            ]);
+
+            var chart = new google.visualization.PieChart(document.getElementById('chart-div'));
+            chart.draw(data, {
+                width: '100%',
+                height: 300
+            });
+        }
+    </script>
+{% endblock %}
