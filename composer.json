@@ -12,7 +12,8 @@
         "aura/router": "3.1.0",
         "zendframework/zend-diactoros": "1.3.10",
         "twig/twig": "~1.0",
-        "illuminate/database": "5.4.13"
+        "illuminate/database": "5.4.13",
+        "jasny/auth": "1.0.1"
     },
     "autoload": {
         "psr-4": {

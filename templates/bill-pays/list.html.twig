@@ -1,0 +1,61 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        Administração de contas a pagar
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <a href="{{ route('bill-pays.new') }}" class="btn btn-default">
+                                <span class="glyphicon glyphicon-plus"></span>
+                            </a>
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table class="table table-bordered">
+                                <thead>
+                                <tr>
+                                    <th style="width: 10px">#</th>
+                                    <th>Data Lanc.</th>
+                                    <th>Nome</th>
+                                    <th>Valor</th>
+                                    <th>Categoria</th>
+                                    <th>Ações</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for bill in bills %}
+                                    <tr>
+                                        <td>{{ bill.id }}</td>
+                                        <td>{{ bill.date_launch | date('d/m/Y') }}</td>
+                                        <td>{{ bill.name }}</td>
+                                        <td>{{ bill.value | number_format(2,',','.') }}</td>
+                                        <td>{{ bill.categoryCost.name }}</td>
+                                        <td>
+                                            <a href="{{ route('bill-pays.edit',{'id': bill.id}) }}">
+                                                <span class="glyphicon glyphicon-pencil"></span>
+                                            </a>
+                                            |
+                                            <a href="{{ route('bill-pays.show',{'id': bill.id}) }}">
+                                                <span class="glyphicon glyphicon-remove"></span>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

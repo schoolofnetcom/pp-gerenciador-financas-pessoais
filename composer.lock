@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "5ba15d3156851a912dc6467aa9b924bd",
+    "content-hash": "59e8dfad5109f4c5e17e1e179575e5a6",
     "packages": [
         {
             "name": "aura/router",
@@ -354,6 +354,55 @@
             "description": "The Illuminate Support package.",
             "homepage": "https://laravel.com",
             "time": "2017-02-15T19:29:24+00:00"
+        },
+        {
+            "name": "jasny/auth",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jasny/auth.git",
+                "reference": "05b25f1441c87a9e1e5e5f05ae61d623ac46c3f7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jasny/auth/zipball/05b25f1441c87a9e1e5e5f05ae61d623ac46c3f7",
+                "reference": "05b25f1441c87a9e1e5e5f05ae61d623ac46c3f7",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6.0",
+                "psr/http-message": "^1.0"
+            },
+            "require-dev": {
+                "hashids/hashids": "~2.0.0",
+                "jasny/php-code-quality": "^2.1.2"
+            },
+            "suggest": {
+                "hashids/hashids": "For generating confirmation tokens"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Jasny\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Arnold Daniels",
+                    "email": "arnold@jasny.net",
+                    "homepage": "http://www.jasny.net"
+                }
+            ],
+            "description": "Authentication and authorization",
+            "homepage": "http://jasny.github.com/auth",
+            "keywords": [
+                "auth"
+            ],
+            "time": "2016-12-28T23:01:51+00:00"
         },
         {
             "name": "nesbot/carbon",

@@ -1,0 +1,30 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        Login
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <form method="post" action="{{ route('auth.login') }}">
+                        <div class="form-group">
+                            <label class="control-label">E-mail</label>
+                            <input class="form-control" type="text" placeholder="E-mail"
+                                   name="email">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Password</label>
+                            <input class="form-control" type="password" placeholder="Senha"
+                                   name="password">
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
