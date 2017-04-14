@@ -2,6 +2,11 @@
 
 require __DIR__ . '/vendor/autoload.php';
 
+if(file_exists(__DIR__ .'/.env')) {
+    $dotenv = new \Dotenv\Dotenv(__DIR__);
+    $dotenv->overload();
+}
+
 $db = include __DIR__ . '/config/db.php';
 list(
     'driver' => $adapter,
@@ -11,7 +16,7 @@ list(
     'password' => $pass,
     'charset' => $charset,
     'collation' => $collation
-    ) = $db['development'];
+    ) = $db['default_connection'];
 return [
     'paths' => [
         'migrations' => [
@@ -23,8 +28,8 @@ return [
     ],
     'environments' => [
         'default_migration_table' => 'migrations',
-        'default_database' => 'development',
-        'development' => [
+        'default_database' => 'default_connection',
+        'default_connection' => [
             'adapter' => $adapter,
             'host' => $host,
             'name' => $name,
