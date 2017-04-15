@@ -24,5 +24,10 @@
     "require-dev": {
         "fzaninotto/faker": "1.6.0",
         "squizlabs/php_codesniffer": "*"
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "vendor/bin/phinx migrate"
+        ]
     }
 }
