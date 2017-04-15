@@ -18,6 +18,7 @@ class ServiceContainer implements ServiceContainerInterface
 
     /**
      * ServiceContainer constructor.
+     *
      * @param $container
      */
     public function __construct()
