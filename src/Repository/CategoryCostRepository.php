@@ -23,7 +23,7 @@ class CategoryCostRepository extends DefaultRepository implements CategoryCostRe
     }
 
     public function sumByPeriod(string $dateStart, string $dateEnd, int $userId): array
-    {Manager::
+    {
         $categories = CategoryCost::query()
             ->selectRaw('category_costs.name, sum(value) as value')
             ->leftJoin('bill_pays', 'bill_pays.category_cost_id', '=', 'category_costs.id')
